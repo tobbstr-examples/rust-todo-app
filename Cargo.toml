@@ -1,0 +1,36 @@
+[package]
+name = "rust-todo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Actix-web
+actix-web = "4"
+
+uuid = {version = "1.10.0", features = ["v4", "fast-rng", "serde"]}
+
+# Cornucopia
+cornucopia_async = { version = "0.6.0", features = ["with-serde_json-1", "deadpool"] }
+
+# Async
+tokio = { version = "1.24.2", features = ["full"] }
+futures = "0.3.25"
+
+# Postgres interaction
+tokio-postgres = { version = "0.7.7", features = [
+    "with-serde_json-1",
+    "with-time-0_3",
+    "with-uuid-1",
+] }
+postgres-types = { version = "0.2.7", features = ["derive"] }
+
+# Postgres connection pooling
+deadpool-postgres = { version = "0.12.1" }
+
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.120"
+time = "0.3.36"
+rust_decimal = { version = "1.35.0", features = ["db-postgres"] }
+
+[build-dependencies]
+cornucopia = "0.9.0"
